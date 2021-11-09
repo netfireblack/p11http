@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-100">
+            <h1 class="button-and-title">
+                <span>Listado de Clientes</span>
+                <button routerLink="/crear-cliente">Nuevo Cliente</button>
+            </h1>
+            <hr>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>CIF</th>
+                    <th>Dirección</th>
+                    <th>Localidad</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let cliente of clientes">
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.cif}}</td>
+                    <td>{{cliente.direccion}}</td>
+                    <td>{{cliente.localidad}}</td>
+                    <td>
+                        <button routerLink="/actualizar-cliente/{{cliente.cif}}" class="outline">
+                            Actualizar
+                        </button>
+                    </td>
+                    <td>
+                        <button (click)="eliminarCliente(cliente.cif)">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
