@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientesService } from 'src/app/servicios/clientes.service';
 
@@ -10,17 +10,17 @@ import { ClientesService } from 'src/app/servicios/clientes.service';
 })
 export class CrearClienteComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(private clientesService: ClientesService,
               private router: Router) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      cif: new FormControl('', [Validators.required, Validators.minLength(9)]),
-      direccion: new FormControl(''),
-      localidad: new FormControl('')
+    this.form = new UntypedFormGroup({
+      nombre: new UntypedFormControl('', [Validators.required]),
+      cif: new UntypedFormControl('', [Validators.required, Validators.minLength(9)]),
+      direccion: new UntypedFormControl(''),
+      localidad: new UntypedFormControl('')
     })
   }
 

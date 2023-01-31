@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientesService } from 'src/app/servicios/clientes.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-actualizar-cliente',
@@ -11,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ActualizarClienteComponent implements OnInit {
 
   cif: string;
-  form: FormGroup;
+  form: UntypedFormGroup;
   cliente: any;
 
   constructor(private route: ActivatedRoute,
@@ -27,11 +27,11 @@ export class ActualizarClienteComponent implements OnInit {
                         }, (err: any) => {
                           console.log(err);
                         })
-    this.form = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      cif: new FormControl('', [Validators.required, Validators.minLength(9)]),
-      direccion: new FormControl(''),
-      localidad: new FormControl('')
+    this.form = new UntypedFormGroup({
+      nombre: new UntypedFormControl('', [Validators.required]),
+      cif: new UntypedFormControl('', [Validators.required, Validators.minLength(9)]),
+      direccion: new UntypedFormControl(''),
+      localidad: new UntypedFormControl('')
     })
   }
 

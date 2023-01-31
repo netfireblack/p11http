@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class ClientesService {
 
-  endpointClientes: string = 'http://localhost:3000';
+  endpointClientes: string = 'http://170.187.139.246:85/';
 
   constructor(private http: HttpClient) { }
 
